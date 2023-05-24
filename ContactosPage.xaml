@@ -5,24 +5,40 @@
              Title="Contactos">
 
         <StackLayout>
-      
 
 
+        <ListView x:Name="listaContactos" ItemSelected="DetalleItem" RowHeight="80">
+                <ListView.ItemTemplate>
 
-            <ListView x:Name="listaContactos" ItemSelected="DetalleItem"  >
-            <ListView.ItemTemplate>
-                           
-                        <DataTemplate>
-                            <ImageCell Text="{Binding nombre}"
+                    <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Spacing="10" Margin="10" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Image Source="{Binding imagen}"  />
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="{Binding nombre}"  VerticalOptions="Start" />
+                            <Label Text="{Binding telefono}" VerticalOptions="End" />
+                        </StackLayout>
+
+                        <!--  <ImageCell Text="{Binding nombre}"
                                Detail="{Binding telefono}"
                                ImageSource="{Binding imagen}"/>
-                        </DataTemplate>
-                     
-            </ListView.ItemTemplate>
-        </ListView>
+                        -->
+                    </StackLayout>
+                        </ViewCell>
+                </DataTemplate>
+
+                </ListView.ItemTemplate>
+            </ListView>
+            
+
+    
+
+
         <Button Text="Nuevo Contacto"            
                 Margin="20"       
                 Clicked="onClickNuevoContacto" />
+
+
 
     </StackLayout>
     

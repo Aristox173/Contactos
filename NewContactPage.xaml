@@ -10,7 +10,7 @@
                     <EntryCell x:Name="nombre"
                        Placeholder="Nombre" />
                     <EntryCell x:Name="cedula"
-                       Placeholder="Cedula" />
+                       Placeholder="Cedula"/>
                     <EntryCell x:Name="telefono"
                        Placeholder="Teléfono" 
                         Keyboard="Numeric"/>

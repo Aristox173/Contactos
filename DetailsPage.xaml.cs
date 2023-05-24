@@ -1,16 +1,17 @@
 using HolaMundo.Models;
+using HolaMundo.Services;
 using HolaMundo.Utils;
 
 namespace HolaMundo;
 
 public partial class DetailsPage : ContentPage
 {
-	
+    readonly IServicioApi _servicioApi = new ServicioApi();
 
     public DetailsPage()
 	{
 		InitializeComponent();
-        
+       // _servicioApi = servicioApi;
     }
 
     protected override void OnAppearing()
@@ -28,7 +29,8 @@ public partial class DetailsPage : ContentPage
     private async void onClickEliminarContacto(object sender, EventArgs e)
 	{
         Contacto contacto = BindingContext as Contacto;
-        Util.listContacto.Remove(contacto);
+        await  _servicioApi.BorrarContacto(contacto.cedula);
+        //Util.listContacto.Remove(contacto);
 		await Navigation.PopAsync();
 	}
 

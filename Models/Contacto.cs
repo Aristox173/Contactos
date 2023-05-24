@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HolaMundo.Models
 {
-    class Contacto
+    public class Contacto
     {
         public string imagen { get; set; }
         public string nombre { get; set; }

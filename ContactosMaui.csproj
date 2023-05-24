@@ -60,6 +60,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	  <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
+	  <PackageReference Include="System.ObjectModel" Version="4.3.0" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Compile Update="ContactosPage.xaml.cs">
 	    <DependentUpon>ContactosPage.xaml</DependentUpon>
 	  </Compile>

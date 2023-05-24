@@ -1,11 +1,18 @@
-﻿namespace HolaMundo;
+﻿using HolaMundo.Services;
+using HolaMundo.Utils;
+
+namespace HolaMundo;
 
 public partial class App : Application
 {
-	public App()
+
+
+  
+
+    public App()
 	{
 		InitializeComponent();
-
-		MainPage = new NavigationPage(new ContactosPage());
+        //Util._servicioApi=new ServicioApi();
+        MainPage = new NavigationPage(new ContactosPage());
 	}
 }

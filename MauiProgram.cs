@@ -1,4 +1,5 @@
-﻿namespace HolaMundo;
+﻿
+namespace HolaMundo;
 
 public static class MauiProgram
 {

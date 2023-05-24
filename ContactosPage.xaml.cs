@@ -1,5 +1,7 @@
 using HolaMundo.Models;
+using HolaMundo.Services;
 using HolaMundo.Utils;
+using Microsoft.Toolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 
 namespace HolaMundo;
@@ -7,31 +9,39 @@ namespace HolaMundo;
 
 public partial class ContactosPage : ContentPage
 {
-	public ContactosPage()
-	{
-		InitializeComponent();
+    
+    readonly IServicioApi _servicioApi = new ServicioApi();
 
-		
-		//listaContactos.ItemsSource = Util.listContacto;
-					
-	}
+    public ContactosPage()
+    {
+        InitializeComponent();
+        //_servicioApi = servicioApi;
 
-	private async void DetalleItem(object sender, SelectedItemChangedEventArgs e)
-	{
-		Contacto contacto = (Contacto)e.SelectedItem;
-		await Navigation.PushAsync(new DetailsPage()
-		{
-			BindingContext = contacto
-		}) ;
+        //listaContactos.ItemsSource = Util.listContacto;
+
     }
 
-    protected override void OnAppearing()
+   
+
+    private async void DetalleItem(object sender, SelectedItemChangedEventArgs e)
+    {
+        Contacto contacto = (Contacto)e.SelectedItem;
+        await Navigation.PushAsync(new DetailsPage()
+        {
+            BindingContext = contacto
+        });
+    }
+
+    protected async override void OnAppearing()
     {
         //Write the code of your page here
-		base.OnAppearing();
-        var contactos = new ObservableCollection<Contacto>(Util.listContacto);
-		listaContactos.ItemsSource = contactos;
-   
+
+        base.OnAppearing();
+        var listaContacto = await _servicioApi.ListarContactos();
+        var contactos = new ObservableCollection<Contacto>(listaContacto);
+        Console.WriteLine("###################consulta");
+        listaContactos.ItemsSource = contactos;
+
     }
 
     private async void onClickNuevoContacto(object sender, EventArgs e)
