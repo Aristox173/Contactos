@@ -7,10 +7,12 @@ using HolaMundo.Services;
 public partial class NewContactPage : ContentPage
 {
 	Contacto contacto;
-    readonly IServicioApi _servicioApi = new ServicioApi();
+    //readonly IServicioApi _servicioApi = new ServicioApi();
+    private ContactosDb _contactosDb = new ContactosDb();
     public NewContactPage()
 	{
 		InitializeComponent();
+		//_contactosDb = contactosDb;
        // _servicioApi = servicioApi;
     }
 
@@ -46,7 +48,8 @@ public partial class NewContactPage : ContentPage
 				cedula = cedula.Text,
 				imagen = "imagen1.png"
 			};
-			await _servicioApi.GuardarContacto(contacto);
+			await _contactosDb.SaveContactoAsync(contacto);
+			//await _servicioApi.GuardarContacto(contacto);
 			//Util.listContacto.Add(contacto);
 			// var page = Navigation.NavigationStack.LastOrDefault();
 			// await Navigation.PushAsync(new Contactos());
@@ -58,7 +61,8 @@ public partial class NewContactPage : ContentPage
 			contacto.direccion= direccion.Text;
 			contacto.telefono= telefono.Text;
 			contacto.cedula=cedula.Text;
-			await _servicioApi.EditarContacto(contacto.cedula, contacto);
+			//await _servicioApi.EditarContacto(contacto.cedula, contacto);
+			await _contactosDb.UpdateContactoAsync(contacto);
             BindingContext = contacto;
 		}
         await Navigation.PopAsync();

@@ -10,11 +10,13 @@ namespace HolaMundo;
 public partial class ContactosPage : ContentPage
 {
     
-    readonly IServicioApi _servicioApi = new ServicioApi();
+    //readonly IServicioApi _servicioApi = new ServicioApi();
+    private ContactosDb _contactosDb = new ContactosDb();
 
     public ContactosPage()
     {
         InitializeComponent();
+        //_contactosDb = contactosDb;
         //_servicioApi = servicioApi;
 
         //listaContactos.ItemsSource = Util.listContacto;
@@ -37,7 +39,8 @@ public partial class ContactosPage : ContentPage
         //Write the code of your page here
 
         base.OnAppearing();
-        var listaContacto = await _servicioApi.ListarContactos();
+        //var listaContacto = await _servicioApi.ListarContactos();
+        var listaContacto = await _contactosDb.GetContactosAsync();
         var contactos = new ObservableCollection<Contacto>(listaContacto);
         Console.WriteLine("###################consulta");
         listaContactos.ItemsSource = contactos;

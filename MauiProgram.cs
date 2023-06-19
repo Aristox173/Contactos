@@ -1,6 +1,8 @@
 ﻿
 namespace HolaMundo;
 
+using HolaMundo.Services;
+
 public static class MauiProgram
 {
 	public static MauiApp CreateMauiApp()

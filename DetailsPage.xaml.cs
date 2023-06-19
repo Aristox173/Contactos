@@ -6,7 +6,8 @@ namespace HolaMundo;
 
 public partial class DetailsPage : ContentPage
 {
-    readonly IServicioApi _servicioApi = new ServicioApi();
+    //readonly IServicioApi _servicioApi = new ServicioApi();
+    private ContactosDb _contactosDb = new ContactosDb();
 
     public DetailsPage()
 	{
@@ -29,9 +30,10 @@ public partial class DetailsPage : ContentPage
     private async void onClickEliminarContacto(object sender, EventArgs e)
 	{
         Contacto contacto = BindingContext as Contacto;
-        await  _servicioApi.BorrarContacto(contacto.cedula);
+        await _contactosDb.DeleteContactoAsync(contacto);
+        //await  _servicioApi.BorrarContacto(contacto.cedula);
         //Util.listContacto.Remove(contacto);
-		await Navigation.PopAsync();
+        await Navigation.PopAsync();
 	}
 
 	private async void onClickModificarContacto(Object sender, EventArgs e)
