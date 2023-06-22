@@ -67,4 +67,9 @@ public partial class NewContactPage : ContentPage
 		}
         await Navigation.PopAsync();
     }
+
+	private async void onClickAbrirCamara(object sender, EventArgs e)
+	{
+		await Navigation.PushAsync(new CameraPage());
+	}
 }

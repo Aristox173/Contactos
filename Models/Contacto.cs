@@ -15,6 +15,5 @@ namespace HolaMundo.Models
         public string telefono { get; set; }
         [PrimaryKey]
         public string cedula { get; set; }
-
     }
 }

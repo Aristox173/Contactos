@@ -4,6 +4,15 @@
              x:Class="HolaMundo.NewContactPage"
              Title="NewContactPage">
     <VerticalStackLayout>
+        <Image
+                x:Name="imagenCamara"
+                HeightRequest="300"
+                HorizontalOptions="Center" />
+        <Button Text="Abrir Cámara" 
+                    BackgroundColor="Blue"
+                    Margin="5"
+                Clicked="onClickAbrirCamara" 
+                    HorizontalOptions="FillAndExpand"/>
         <TableView>
             <TableRoot>
                 <TableSection Title="Ingrese los datos del nuevo contacto">

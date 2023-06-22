@@ -2,7 +2,6 @@
 using SQLite;
 using HolaMundo.Utils;
 using HolaMundo.Models;
-using static Android.Content.ClipData;
 
 namespace HolaMundo.Services
 {
@@ -66,4 +65,3 @@ namespace HolaMundo.Services
 
     }
 }
-
